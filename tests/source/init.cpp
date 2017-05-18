@@ -11,13 +11,13 @@ SCENARIO ("constructorTest"){
 }
 SCENARIO("addTest"){
 	Matrix<int> mat3(3,3);
-	std::ifstream("mat3.txt");
+	std::ifstream("mat3");
 	
 	Matrix<int> mat4(3,3);
-	std::ifstream ("mat4.txt") >> mat4;
+	std::ifstream ("mat4") >> mat4;
 	
 	Matrix<int> matRes(3,3);
-	std::ifstream("addRes.txt") >> matRes;
+	std::ifstream("addRes") >> matRes;
 	
 	REQUIRE ((mat3 + mat4) == matRes);
 }
