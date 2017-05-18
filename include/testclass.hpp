@@ -175,11 +175,19 @@ Matrix<T> Matrix<T>::fillMatrix(string filename)
 template <typename T>
 istream & operator >> (istream & in, Matrix<T>& mat)
 {
+	try {
+		if (in) {
 			for (unsigned int i = 0; i < mat.rows_; ++i)
 				for (unsigned int j = 0; j < mat.columns_; ++j)
 					in >> mat.Array_[i][j];
 			return in;
-
+		}
+		else throw "Can't open file\n";
+	}
+	catch (char* msg) {
+		cout << "Error: " << msg;
+		return in;
+	}
 }
 
 template<class T>
