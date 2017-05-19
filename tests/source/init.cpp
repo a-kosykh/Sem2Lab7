@@ -50,8 +50,8 @@ SCENARIO("op=="){
 	REQUIRE(mat1 == mat2);
 }
 SCENARIO("fillMat","[!mayfail]"){
-	Matrix mat3<int>(3,3);
-	Matrix mat3fill<int>(3,3);
+	Matrix<int> mat3(3,3);
+	Matrix<int> mat3fill(3,3);
 	std::ifstream("mat3") >> mat3;
 	mat3fill.fillMatrix("mat3");
 	REQUIRE(mat3 == mat3fill);
