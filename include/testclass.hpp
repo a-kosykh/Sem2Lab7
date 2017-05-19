@@ -55,6 +55,10 @@ public:
 		return Array_[i-1][j-1];
 	}
 	
+	void setElement(unsigned int row, unsigned int column, T key) {
+		Array_[row][column] = key;
+	}
+	
 	Matrix<T> fillMatrix(string filename);
 	
 	Matrix<T> operator+ (const Matrix& mat) const {

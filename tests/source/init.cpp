@@ -56,3 +56,46 @@ SCENARIO("fillMat","[!mayfail]"){
 	mat3fill.fillMatrix("mat3");
 	REQUIRE(mat3 == mat3fill);
 }
+SCENARIO("MULT"){
+Matrix<int> mat1(2,2);
+mat1.setElement(0,0,1);
+mat1.setElement(0,1,1);
+mat1.setElement(1,0,1);
+mat1.setElement(1,1,1);
+
+Matrix<int> mat2(2,2);
+mat2.setElement(0,0,2);
+mat2.setElement(0,1,2);
+mat2.setElement(1,0,2);
+mat2.setElement(1,1,2);
+
+Matrix<int> mat3(2,2);
+mat3.setElement(0,0,4);
+mat3.setElement(0,1,4);
+mat3.setElement(1,0,4);
+mat3.setElement(1,1,4);
+
+REQUIRE( (mat1*mat2) == mat3);
+}
+
+SCENARIO("add"){
+Matrix<int> mat1(2,2);
+mat1.setElement(0,0,1);
+mat1.setElement(0,1,1);
+mat1.setElement(1,0,1);
+mat1.setElement(1,1,1);
+
+Matrix<int> mat2(2,2);
+mat2.setElement(0,0,2);
+mat2.setElement(0,1,2);
+mat2.setElement(1,0,2);
+mat2.setElement(1,1,2);
+
+Matrix<int> mat3(2,2);
+mat3.setElement(0,0,3);
+mat3.setElement(0,1,3);
+mat3.setElement(1,0,3);
+mat3.setElement(1,1,3);
+
+REQUIRE( (mat1+mat2) == mat3);
+}
