@@ -1,15 +1,17 @@
 #include <testclass.hpp>
 #include <catch.hpp>
 
+SCENARIO ("default"){
+	Matrix<int> mat;
+	REQUIRE (mat.getRows() = 0);
+	REQUIRE (mat.getColumns() = 0);
+}
+
 SCENARIO ("constructorTest"){
 	Matrix<int> mat(3,3);
-	unsigned int rows;
-	unsigned int cls;
-	rows =	mat.getRows();
-	cls = mat.getColumns();
-	REQUIRE (rows == cls);
+	REQUIRE (mat.getRows() == mat.getColumns());
 }
-SCENARIO("addTest"){
+SCENARIO("addTest","[!mayfail]"){
 	Matrix<int> mat3(3,3);
 	std::ifstream("mat3");
 	
@@ -20,4 +22,37 @@ SCENARIO("addTest"){
 	std::ifstream("addRes") >> matRes;
 	
 	REQUIRE ((mat3 + mat4) == matRes);
+}
+
+SCENARIO("multiTest","[!mayfail]"){
+	Matrix<int> mat1(3,2);
+	Matrix<int> mat2(2,3);
+	
+	std::ifstream("mat1") >> mat1;
+	std::ifstream("mat2") >> mat2;
+	
+	Matrix<int> res(2,2);
+	std::ifstream("multRes") >> res;
+	
+	REQUIRE((mat1*mat2) == res)
+}
+
+SCENARIO("op="){
+	Matrix<int> mat1(2,2);
+	Matrix<int> mat2 = mat1;
+	REQUIRE (mat1 == mat2);
+}
+
+SCENARIO("op=="){
+	Matrix<int> mat1(2,2);
+	Matrix<int> mat2(2,2);
+	
+	REQUIRE(m1 == m2);
+}
+SCENARIO("fillMat","[!mayfail]"){
+	Matrix mat3(3,3);
+	Matrix mat3fill(3,3);
+	std::ifstream("mat3") >> mat3;
+	mat3fill.fillMatrix("mat3");
+	REQUIRE(mat3 == mat3fill);
 }

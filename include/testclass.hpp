@@ -54,7 +54,7 @@ public:
 	T getElement(unsigned int i, unsigned j) {
 		return Array_[i-1][j-1];
 	}
-
+	
 	Matrix<T> fillMatrix(string filename);
 	
 	Matrix<T> operator+ (const Matrix& mat) const {
