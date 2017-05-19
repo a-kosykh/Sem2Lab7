@@ -25,8 +25,8 @@ SCENARIO("addTest","[!mayfail]"){
 }
 
 SCENARIO("multiTest","[!mayfail]"){
-	Matrix<int> mat1(3,2);
-	Matrix<int> mat2(2,3);
+	Matrix<int> mat1(2,3);
+	Matrix<int> mat2(3,2);
 	
 	std::ifstream("mat1") >> mat1;
 	std::ifstream("mat2") >> mat2;
