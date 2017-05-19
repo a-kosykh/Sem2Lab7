@@ -3,8 +3,8 @@
 
 SCENARIO ("default"){
 	Matrix<int> mat;
-	REQUIRE (mat.getRows() = 0);
-	REQUIRE (mat.getColumns() = 0);
+	REQUIRE (mat.getRows() == 0);
+	REQUIRE (mat.getColumns() == 0);
 }
 
 SCENARIO ("constructorTest"){
@@ -34,7 +34,7 @@ SCENARIO("multiTest","[!mayfail]"){
 	Matrix<int> res(2,2);
 	std::ifstream("multRes") >> res;
 	
-	REQUIRE((mat1*mat2) == res)
+	REQUIRE((mat1*mat2) == res);
 }
 
 SCENARIO("op="){
@@ -47,11 +47,11 @@ SCENARIO("op=="){
 	Matrix<int> mat1(2,2);
 	Matrix<int> mat2(2,2);
 	
-	REQUIRE(m1 == m2);
+	REQUIRE(mat1 == mat2);
 }
 SCENARIO("fillMat","[!mayfail]"){
-	Matrix mat3(3,3);
-	Matrix mat3fill(3,3);
+	Matrix mat3<int>(3,3);
+	Matrix mat3fill<int>(3,3);
 	std::ifstream("mat3") >> mat3;
 	mat3fill.fillMatrix("mat3");
 	REQUIRE(mat3 == mat3fill);
